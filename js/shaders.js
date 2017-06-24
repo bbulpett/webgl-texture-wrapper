@@ -1,6 +1,6 @@
 function initShaders() {
-  var fragmentShader = getShader(gl, 'shader-fs');
-  var vertexShader = getShader(gl, 'shader-vs');
+  var fragmentShader = getShader(gl, "shader-fs");
+  var vertexShader = getShader(gl, "shader-vs");
 
   // Create shader program
   shaderProgram = gl.createProgram();
@@ -9,7 +9,7 @@ function initShaders() {
   gl.linkProgram(shaderProgram);
 
   // If creating the shader program fails, show the alert..
-  if (!gl.getProgramParameter(shaderProgram, g.LINK_STATUS)) {
+  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
     console.log('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
   }
 

@@ -1,23 +1,28 @@
 <!DOCTYPE HTML>
 <html>
-  <body onload="start()">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sylvester/0.1.3/sylvester.min.js"></script>
+    <script src="js/glutils.js"></script>
     <script src="js/context.js"></script>
     <script src="js/shaders.js"></script>
+    <script src="js/object.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/matrix-utils.js"></script>
     <script id="shader-fs" type="x-shader/x-fragment">
-      void main(void) {
-        gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
-      }
+        void main(void) {
+            gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+        }
     </script>
-    <script id="shader-vs" type="x-shader/x-fragment">
+    <script id="shader-vs" type="x-shader/x-vertex">
       attribute vec3 aVertexPosition;
-
       uniform mat4 uMVMatrix;
       uniform mat4 uPMatrix;
-      
       void main(void) {
         gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
       }
     </script>
+  </head>
+  <body onload="start()">
     <h1>WebGL Texture Wrapper</h1>
     <canvas id="glCanvas" width="640" height="480">
       Your browser doesn't appear to support the <code>&lt;canvas&gt;</code> element.

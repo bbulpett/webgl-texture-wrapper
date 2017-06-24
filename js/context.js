@@ -14,6 +14,10 @@ function start() {
   gl.enable(gl.DEPTH_TEST);                           // Enable depth testing
   gl.depthFunc(gl.LEQUAL);                            // Make close things obscure far things
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT) // Clear color and depth buffer
+
+  initShaders(); // Initialize shaders (lighting for vertices, etc.)
+  initBuffers(); // Call routine that builds objects to draw
+  setInterval(drawScene, 15); // Draw the scene periodically
 }
 
 function initWebGL(canvas) {
