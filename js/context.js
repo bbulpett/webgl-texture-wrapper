@@ -4,7 +4,8 @@ function start() {
   var canvas = document.getElementById('glCanvas');
 
   gl = initWebGL(canvas); // Initialize the GL context
-
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  
   if (!gl) {
     return; // Return early if WebGL is unavailable or not working
   }
